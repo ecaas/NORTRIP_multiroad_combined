@@ -1,4 +1,4 @@
-    subroutine transfer_preprocessor_to_combined_meteodata
+subroutine transfer_preprocessor_to_combined_meteodata
     
     use NORTRIP_multiroad_index_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -8,7 +8,7 @@
     integer i,t,jj
     integer unit_in
     
- 	write(unit_logfile,'(A)') '================================================================'
+    write(unit_logfile,'(A)') '================================================================'
 	write(unit_logfile,'(A)') 'Transfering preprocessed meteodata to combined (transfer_preprocessor_to_combined_meteodata)'
 	write(unit_logfile,'(A)') '================================================================' 
 
@@ -23,10 +23,10 @@
         'Rain',achar(9),'Snow',achar(9),'Global radiation',achar(9),'Longwave radiation',achar(9),'Cloud cover',achar(9),'Pressure',achar(9),'Road surface temperature'
     
         
-!Distribute meteo data to roadlinks. Saves all links or specified links.
+    !Distribute meteo data to roadlinks. Saves all links or specified links.
         do jj=1,n_save_links
         i=save_links(jj)
-               
+
         if ((inputdata_int_rl(savedata_rl_index,i).eq.1.and.use_only_special_links_flag.ge.1) &
             .or.(use_only_special_links_flag.eq.0).or.(use_only_special_links_flag.eq.2)) then
         
@@ -61,7 +61,7 @@
                 transfer_available_meteo_data(transfer_pressure_index)=.true.
                 transfer_available_meteo_data(transfer_road_temperature_obs_input_index)=.false.
     
-       if (allocated(meteo_output)) deallocate (meteo_output)
+        if (allocated(meteo_output)) deallocate (meteo_output)
 
     end subroutine transfer_preprocessor_to_combined_meteodata
     
@@ -106,4 +106,4 @@
     
     if (allocated(transfer_meteo_data)) deallocate (transfer_meteo_data)
     
-    end subroutine transfer_combined_to_NORTRIP_meteodata
+end subroutine transfer_combined_to_NORTRIP_meteodata
