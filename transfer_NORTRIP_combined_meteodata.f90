@@ -59,7 +59,7 @@ subroutine transfer_preprocessor_to_combined_meteodata
                 transfer_available_meteo_data(transfer_long_rad_in_index)=.true.
                 transfer_available_meteo_data(transfer_cloud_cover_index)=.true.
                 transfer_available_meteo_data(transfer_pressure_index)=.true.
-                transfer_available_meteo_data(transfer_road_temperature_obs_input_index)=.false.
+                transfer_available_meteo_data(transfer_road_temperature_obs_input_index)=.True.
     
         if (allocated(meteo_output)) deallocate (meteo_output)
 
