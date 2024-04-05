@@ -29,7 +29,7 @@ UEMEP_DIR = NORTRIP_multiroad/uEMEP
 	$(F90) $(F90FLAGS) -c $< -o $@
 
 %.o: $(NORTRIP_DIR)/%.f90
-	$(F90) $(F90FLAGS) $(DEBUG_FLAGS) -c $< -o $@
+	$(F90) $(F90FLAGS) -c $< -o $@
 
 %.o: $(NORTRIPMULTI_DIR)/%.f90
 	$(F90) $(F90FLAGS) -c $< -o $@
