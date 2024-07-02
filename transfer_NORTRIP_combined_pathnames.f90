@@ -1,5 +1,5 @@
 
-    subroutine transfer_preprocessor_to_combined_pathnames
+subroutine transfer_preprocessor_to_combined_pathnames
     
     use NORTRIP_multiroad_index_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -16,6 +16,7 @@
     path_init=pathname_init_in
     path_init_out=pathname_init_out
     filename_init=filename_init_in
+    filename_init_netcdf=filename_init_in_netcdf
     filename_output_roadmeteo=trim(filename_NORTRIP_template)//'_roadmeteo.txt'
     
     !Open the log file when it is transferred back
@@ -32,12 +33,13 @@
     transfer_path_init=path_init
     transfer_path_init_out=path_init_out
     transfer_filename_init=filename_init
+    transfer_filename_init_netcdf=filename_init_netcdf
     transfer_path_output_emis=path_output_emis
     transfer_filename_output_emis=filename_output_emis
     transfer_filename_output_grid_emis=filename_output_grid_emis
     transfer_path_output_roadmeteo=path_output_roadmeteo
     transfer_filename_output_roadmeteo=filename_output_roadmeteo
- 
+
     transfer_path_outputfig=path_outputfig
     transfer_path_ospm=path_ospm
     transfer_path_fortran=path_fortran
@@ -45,9 +47,9 @@
 
     transfer_finished_file_append=multi_finished_file_append
     
-    end subroutine transfer_preprocessor_to_combined_pathnames
+end subroutine transfer_preprocessor_to_combined_pathnames
     
-    subroutine transfer_combined_to_NORTRIP_pathnames
+subroutine transfer_combined_to_NORTRIP_pathnames
     
     use NORTRIP_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -66,12 +68,12 @@
 
     if (unit_logfile.gt.0) then
         write(*,'(A)') 'Writing to log file' 
-  	    write(*,'(A)') '================================================================'
+        write(*,'(A)') '================================================================'
     endif
-   
+
     !Open log file for the first time
     call open_logfile
-   
+
 	write(unit_logfile,'(A)') '================================================================'
 	write(unit_logfile,'(A)') 'Transfering model path and file names to NORTRIP (transfer_combined_to_NORTRIP_pathnames)'
 	write(unit_logfile,'(A)') '================================================================' 
@@ -88,12 +90,13 @@
     path_init=transfer_path_init
     path_init_out=transfer_path_init_out
     filename_init=transfer_filename_init
+    filename_init_netcdf=transfer_filename_init_netcdf
     path_output_emis=transfer_path_output_emis
     filename_output_emis=transfer_filename_output_emis
     filename_output_grid_emis=transfer_filename_output_grid_emis
     path_output_roadmeteo=transfer_path_output_roadmeteo
     filename_output_roadmeteo=transfer_filename_output_roadmeteo
- 
+
     path_outputfig=transfer_path_outputfig
     path_ospm=transfer_path_ospm
     path_fortran=transfer_path_fortran
@@ -101,4 +104,4 @@
 
     finished_file_append=transfer_finished_file_append
 
-    end subroutine transfer_combined_to_NORTRIP_pathnames
+end subroutine transfer_combined_to_NORTRIP_pathnames

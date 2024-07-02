@@ -28,9 +28,9 @@ subroutine transfer_preprocessor_to_combined_activitydata
         transfer_available_activity_data=.false.
     endif
     
-    end subroutine transfer_preprocessor_to_combined_activitydata
+end subroutine transfer_preprocessor_to_combined_activitydata
     
-    subroutine transfer_combined_to_NORTRIP_activitydata
+subroutine transfer_combined_to_NORTRIP_activitydata
     
     use NORTRIP_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -48,11 +48,11 @@ subroutine transfer_preprocessor_to_combined_activitydata
     
     if (allocated(transfer_activity_input_data)) deallocate(transfer_activity_input_data)
     
-    end subroutine transfer_combined_to_NORTRIP_activitydata
+end subroutine transfer_combined_to_NORTRIP_activitydata
 
 
-    !----------------------------------------------------------------------
-    subroutine process_multi_NORTRIP_activity_inputdata
+!----------------------------------------------------------------------
+subroutine process_multi_NORTRIP_activity_inputdata
 
     use NORTRIP_multiroad_index_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -71,9 +71,9 @@ subroutine transfer_preprocessor_to_combined_activitydata
     !    open(unit_logfile,file=filename_log,status='old',position='append')
     !endif
 
- 	write(unit_logfile,'(A)') '================================================================'
- 	write(unit_logfile,'(A)') 'Processing activity data'
-   
+    write(unit_logfile,'(A)') '================================================================'
+    write(unit_logfile,'(A)') 'Processing activity data'
+
     transfer_n_roads=n_save_links
     if (allocated(multi_activity_input_data)) then
         n_input_activity=size(multi_activity_input_data,2)
@@ -83,7 +83,7 @@ subroutine transfer_preprocessor_to_combined_activitydata
     
     n_output_activity=size(transfer_activity_input_data,2)
     
- 	write(unit_logfile,'(A)') '----------------------------------------------------------------'
+    write(unit_logfile,'(A)') '----------------------------------------------------------------'
     if (.not.allocated(match_link)) allocate(match_link(transfer_n_roads))
     if (.not.allocated(match_time)) allocate(match_time(n_output_activity))
     match_link=0
@@ -161,5 +161,5 @@ subroutine transfer_preprocessor_to_combined_activitydata
     !    close(unit_logfile,status='keep')
     !endif
 
-    end subroutine process_multi_NORTRIP_activity_inputdata
+end subroutine process_multi_NORTRIP_activity_inputdata
 !----------------------------------------------------------------------

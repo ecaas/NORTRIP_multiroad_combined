@@ -1,4 +1,4 @@
-    subroutine transfer_preprocessor_to_combined_metadata
+subroutine transfer_preprocessor_to_combined_metadata
     
     use NORTRIP_multiroad_index_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -14,11 +14,11 @@
     
     allocate (EF_temp(num_veh,n_roadlinks))
     
- 	write(unit_logfile,'(A)') '================================================================'
+    write(unit_logfile,'(A)') '================================================================'
 	write(unit_logfile,'(A)') 'Transfering preprocessor metadata to combined (transfer_preprocessor_to_combined_metadata)'
 	write(unit_logfile,'(A)') '================================================================' 
 
-   !Set some of the parameters that are not read in yet
+    !Set some of the parameters that are not read in yet
     !write(*,*) n_roadlinks,n_save_links,n_save_road
     do i=1,n_roadlinks
         inputdata_int_rl(drivingcycle_rl_index,i)=1
@@ -98,7 +98,7 @@
     if (.not.allocated(transfer_f_roof_ospm)) allocate (transfer_f_roof_ospm(0:transfer_n_roads))
     if (.not.allocated(transfer_RecHeight_ospm)) allocate (transfer_RecHeight_ospm(0:transfer_n_roads))
     if (.not.allocated(transfer_f_turb_ospm)) allocate (transfer_f_turb_ospm(0:transfer_n_roads))
-   
+
     !Single factors
     if (.not.allocated(transfer_observed_moisture_cutoff_value)) allocate (transfer_observed_moisture_cutoff_value(0:transfer_n_roads))
     if (.not.allocated(transfer_road_ID)) allocate (transfer_road_ID(0:transfer_n_roads))
@@ -319,9 +319,9 @@
     transfer_start_month_binding=multi_start_month_binding
     transfer_end_month_binding=multi_end_month_binding
 
-    end subroutine transfer_preprocessor_to_combined_metadata
+end subroutine transfer_preprocessor_to_combined_metadata
 
-    subroutine transfer_combined_to_NORTRIP_metadata
+subroutine transfer_combined_to_NORTRIP_metadata
     
     use NORTRIP_definitions
     use NORTRIP_multiroad_combined_definitions
@@ -663,4 +663,4 @@
     start_month_binding=transfer_start_month_binding
     end_month_binding=transfer_end_month_binding
     
-    end subroutine transfer_combined_to_NORTRIP_metadata
+end subroutine transfer_combined_to_NORTRIP_metadata

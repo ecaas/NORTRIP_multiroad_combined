@@ -14,7 +14,7 @@ LLIB = $(shell nf-config --flibs)
 LDFLAGS =  $(F90FLAGS) $(LLIB)
 
 #PROG = NORTRIP_multiroad_combined_v2-el7
-PROG = NORTRIP_multiroad_combined_v2-r8
+PROG = NORTRIP_multiroad_combined_v2-r8_testbinary
 
 NILU_DIR = NORTRIP_multiroad/NILU
 NORTRIP_DIR = NORTRIP
