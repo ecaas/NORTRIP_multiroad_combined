@@ -74,9 +74,9 @@ infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd>_T<HHMM>Z.nc
 # Paths and filenames used by NORTRIP_multiroad (AROME_25KM_NORWAY_<yyyymmdd>_SURF.nc)
 #----------------------------------------------------
 #filename_no_log            	/home/elina/NORTRIP_forecast_testlog.txt
-inpath_meteo_nc             	/lustre/storeB/immutable/archive/projects/metproduction/meps/<yyyy/mm/dd>/
+inpath_meteo_nc             	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
 inpath_meteo_nc_forecast            	/lustre/storeB/project/metproduction/products/yr_short/ 
-inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/meps/<yyyy/mm/dd>/
+inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
 inpath_static_road_1    	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_runway_data/
 inpath_static_road_2       	no data
 inpath_dynamic_emission    	no data
