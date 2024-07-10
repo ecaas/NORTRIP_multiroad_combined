@@ -16,9 +16,9 @@ die () {
 
 [ "$#" -eq 1 ] || die 
 
-/modules/rhel8/user-apps/python/python-3.10.4/bin/python3 -m venv /modules/rhel8/user-apps/fou-modules/$MODULENAME/"$1"$/venv --upgrade-deps
-mkdir /modules/rhel8/user-apps/fou-modules/$MODULENAME/"$1"/bin
-mkdir /modules/rhel8/user-apps/fou-modules/$MODULENAME/"$1"/share
+/modules/rhel8/user-apps/python/python-3.10.4/bin/python3 -m venv /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$1"/venv --upgrade-deps
+mkdir /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$1"/bin
+mkdir /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$1"/share
 
 MODULEFILE=/modules/MET/rhel8/user-modules/fou-modules/"$MODULENAME"/"$1"
 
