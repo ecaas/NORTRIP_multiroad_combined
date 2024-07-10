@@ -4,7 +4,7 @@ The NORTRIP executable compiled from this repo is used in production via the `no
 
 ## new module version
 
-The creation of an entirely new module version, 2024-07.666 for example sake, happens in 2 steps: 
+The creation of an entirely new module version, `2024-07.666` for the sake of this example, happens in 2 steps: 
 - creation of the module and installation of the python package  
   ```
   ./create_module_version.sh 2024-07.666
