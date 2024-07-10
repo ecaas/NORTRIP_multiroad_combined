@@ -73,7 +73,7 @@ infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd>_T<HHMM>Z.nc
 #----------------------------------------------------
 # Paths and filenames used by NORTRIP_multiroad (AROME_25KM_NORWAY_<yyyymmdd>_SURF.nc)
 #----------------------------------------------------
-#filename_no_log            	/home/elina/NORTRIP_forecast_testlog.txt
+#filename_no_log            	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/NORTRIP_forecast_log.txt
 inpath_meteo_nc             	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
 inpath_meteo_nc_forecast            	/lustre/storeB/project/metproduction/products/yr_short/ 
 inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
@@ -140,8 +140,8 @@ lapse_rate	-0.005
 #----------------------------------------------------
 #NORTRIP runtime info data
 #----------------------------------------------------
-Model log file           	/home/elina/NORTRIP_forecast_testlog.txt
-Model input parameter path     	/home/elina/NORTRIP_param_files/
+#Model log file           	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/NORTRIP_forecast_log.txt
+Model input parameter path     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_parameters/
 Model parameter filename       	Road_dust_parameter_table_v10
 Model input data path          	Will be set to 'path_inputdata_for_NORTRIP'
 Model input data filename      	Will be set to 'outfile_NORTRIP_template' filled with date
@@ -149,7 +149,7 @@ Model output data path         	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Run
 Model output data filename  	Will be set to 'outfile_NORTRIP_template' without filled in date
 Model init data path        	Will be set to path_init_for_NORTRIP
 Model init data filename    	Will be set to 'outfile_NORTRIP_template'+'_init' after date is found
-#Model output emission path  	/home/elina/NORTRIP_forecast_test/NORTRIP_out/emissions/ #Not used in Avinor case!
+#Model output emission path  	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/emissions/ #Not used in Avinor case!
 Model output emission filename	uEMEP_emissions
 Model output gridded emission filename	uEMEP_grid_emissions
 Model output road meteo path	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/runway_conditions/
@@ -214,7 +214,6 @@ use_obs_as_receptors_flag  	0
 filename_NORTRIP_receptors 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/pilot_airports_stationlist_api.txt
 #/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/pilot_airports_stationlist_api.txt
 #/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_measurements/avinor_stationlist_api_20230127_oldID.txt
-#/home/elina/avinor_stationlist_api_20230127_oldID.txt
 #----------------------------------------------------
 
 #----------------------------------------------------
