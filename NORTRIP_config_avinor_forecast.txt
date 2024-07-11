@@ -66,7 +66,7 @@ replace_which_meteo_with_obs	1,1,1,1,1,1,1,1,1,1
 #infile_meteo_obs_data      	Vaernes_all_obs.txt
 
 inpath_meteo_obs_netcdf_data      	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/preprocess_frost_script/
-infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd>_T<HHMM>Z.nc 
+infile_meteo_obs_netcdf_data           frost_meteo_<yyyymmdd>_T<HH>.nc 
 #frost_<meteo_startdate>_T<starttime>Z.nc contains six values, the first at startdate, starttime
 #----------------------------------------------------
 
