@@ -2,17 +2,23 @@
 
 The NORTRIP executable compiled from this repo is used in production via the `nortrip-roadweather` module. The module also contains a venv where the package https://gitlab.met.no/elina1/create_nortrip_input, which creates the necessay input for NORTRIP from Frost, is installed. 
 
-## new module version
+## create or update module version
 
-The creation of an entirely new module version, `2024-07.666` for the sake of this example, happens in 2 steps: 
-- creation of the module and installation of the python package  
-  ```
-  ./create_module_version.sh 2024-07.666
-  ```
-- compilation and copy of the executable, the job script and the config file to the module 
-  ```
-  ./deploy_to_module_version.sh 2024-07.666
-  ```
+Via the deployment script `module_deployment.sh` it is possible to create a complete new version of the module from scratch or selectively update parts of an existing version
+
+```
+Usage: module_deployment.sh [ACTION] [VERSION_NAME]
+
+both action and version name are required arguments
+possible actions:
+- CREATE : creates nortrip-roadweather/[VERSION_NAME] and installs https://gitlab.met.no/elina1/create_nortrip_input in the module venv
+- UPDATE_PACKAGE : re-installs https://gitlab.met.no/elina1/create_nortrip_input into nortrip-roadweather/[VERSION_NAME]
+- UPDATE_NORTRIP : compiles and copies the executable/config/jobscript files in the expected paths in the module
+- ONLY_COPY_FILES : copies the executable/config/job script files in the expected paths in the module
+- ALL : CREATE + UPDATE_NORTRIP
+```
+
+so for example to only update the python package in version `2024-07.666` (assumed existing): `./module_deployment.sh UPDATE_PACKAGE 2024-07.666` 
 
 ## deployment to production
 
