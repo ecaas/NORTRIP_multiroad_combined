@@ -18,7 +18,8 @@ possible actions:
 - ALL : CREATE + UPDATE_NORTRIP
 ```
 
-so for example to only update the python package in version `2024-07.666` (assumed existing): `./module_deployment.sh UPDATE_PACKAGE 2024-07.666` 
+so for example to only update the python package in version `2024-07.666` (assumed existing):   
+`./module_deployment.sh UPDATE_PACKAGE 2024-07.666` 
 
 ## deployment to production
 
