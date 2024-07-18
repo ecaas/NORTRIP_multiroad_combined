@@ -34,7 +34,7 @@ func_create_module_version()
 
 	MODULEFILE=/modules/MET/rhel8/user-modules/fou-modules/"$MODULENAME"/"$2"
 
-cat > "$MODULEFILE" <<'EOF'
+	cat > "$MODULEFILE" <<'EOF'
 #%Module1.0#####################################################################
 ##
 
