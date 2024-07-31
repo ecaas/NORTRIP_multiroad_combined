@@ -108,7 +108,10 @@ func_compile_nortrip()
 	module use /modules/MET/rhel8/user-modules/fou-modules
 	module load netcdf-fortran/4.6.0_intel2022
 
-        rm *.o
+	countobjects=`ls -1 *.o 2>/dev/null | wc -l`
+	if [ $countobjects != 0 ]; then
+            rm *.o
+	fi
 	make
 
 	# check if executable is there and is new
