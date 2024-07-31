@@ -2,9 +2,17 @@
 
 The NORTRIP executable compiled from this repo is used in production via the `nortrip-roadweather` module. The module also contains a venv where the package https://gitlab.met.no/elina1/create_nortrip_input, which creates the necessay input for NORTRIP from Frost, is installed. 
 
+## update this repo
+
+To update this repository including the submodules run from the repo root path:
+```
+git pull
+git submodule update --recursive
+```
+
 ## create or update module version
 
-Via the deployment script `module_deployment.sh` it is possible to create a complete new version of the module from scratch or selectively update parts of an existing version
+After an [update of the repo](#update-this-repo), via the deployment script `module_deployment.sh` it is possible to create a complete new version of the module from scratch or selectively update parts of an existing version
 
 ```
 Usage: module_deployment.sh [ACTION] [VERSION_NAME]
