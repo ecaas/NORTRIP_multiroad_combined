@@ -47,7 +47,7 @@ x and y grid dimension	472,604
 #----------------------------------------------------
 #Monitoring data information
 #To not use observations set the replace meteo with obs flag to 0
-#To use observations at the individual road sites set this flag to 2 and specify which observations to use
+#To use observations at the individual road sites set this flag to 2 and specify which observations to use.  NB: Use 2 for reading from netcdf files.
 #To include lapse rate correction in the model also use 2 but do not specify specific variables (strange but OK)
 #----------------------------------------------------
 replace_meteo_with_obs	2
@@ -76,11 +76,11 @@ infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd>_T<HH>.nc
 #filename_no_log            	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/NORTRIP_forecast_log.txt
 inpath_meteo_nc             	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
 inpath_meteo_nc_forecast            	/lustre/storeB/project/metproduction/products/yr_short/ 
-inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/MEPS/<yyyy/mm/dd>/
-inpath_static_road_1    	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_runway_data/
+inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/meps/<yyyy/mm/dd>/
+inpath_static_road_1    	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_runway_data/
 inpath_static_road_2       	no data
 inpath_dynamic_emission    	no data
-inpath_dynamic_road     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_runway_data/
+inpath_dynamic_road     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_runway_data/
 inpath_terrain          	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_terrain/DTM50_20160929_ascii/
 inpath_forest           	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_terrain/DTM50_20160929_ascii/
 path_inputdata_for_NORTRIP 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_in/
@@ -90,7 +90,7 @@ infile_meteo_nc            	meps_det_2_5km_<yyyymmddTHH>Z.nc
 infile_meteo_alternative_nc            	meps_subset_2_5km_<yyyymmdd>T00Z.nc
 infile_meteo_nc_forecast         	met_forecast_1_0km_nordic_<yyyymmddTHH>Z.nc
 infile_meteo_nc2          	met_analysis_1_0km_nordic_<yyyymmddTHH>Z.nc
-infile_static_road_1      	Avinor_Fake_Runway_data_Norway_2023_1.txt
+infile_static_road_1      	Avinor_Fake_Runway_segments_data_Norway_2024.txt
 infile_static_road_2      	no data
 infile_dynamic_road     	Road_traffic_profile_SVV.txt
 infile_dynamic_pm2.5       	no data
@@ -140,8 +140,8 @@ lapse_rate	-0.005
 #----------------------------------------------------
 #NORTRIP runtime info data
 #----------------------------------------------------
-#Model log file           	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/NORTRIP_forecast_log.txt
-Model input parameter path     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_parameters/
+Model log file           	/home/elina/NORTRIP_forecast_testlog.txt
+Model input parameter path     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_param_files/
 Model parameter filename       	Road_dust_parameter_table_v10
 Model input data path          	Will be set to 'path_inputdata_for_NORTRIP'
 Model input data filename      	Will be set to 'outfile_NORTRIP_template' filled with date
@@ -209,7 +209,7 @@ Specify gridding using file	0
 #Set to 3 to calculate all roads and save all as special links. NOT IMPLEMENTED
 #Must have api in name to be read in the uEMEP format
 #----------------------------------------------------
-use_only_special_links_flag	1
+use_only_special_links_flag	2
 use_obs_as_receptors_flag  	0
 filename_NORTRIP_receptors 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/pilot_airports_stationlist_api.txt
 #/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/pilot_airports_stationlist_api.txt
