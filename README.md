@@ -12,7 +12,7 @@ git submodule update --recursive
 
 ## create or update module version
 
-After an [update of the repo](#update-this-repo), via the deployment script `module_deployment.sh` it is possible to create a complete new version of the module from scratch or selectively update parts of an existing version
+After an update of the repo (previous section), via the deployment script `module_deployment.sh` it is possible to create a complete new version of the module from scratch or selectively update parts of an existing version
 
 ```
 Usage: module_deployment.sh [ACTION] [VERSION_NAME]
