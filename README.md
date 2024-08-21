@@ -20,14 +20,14 @@ Usage: module_deployment.sh [ACTION] [VERSION_NAME]
 both action and version name are required arguments
 possible actions:
 - CREATE : creates nortrip-roadweather/[VERSION_NAME] and installs https://gitlab.met.no/elina1/create_nortrip_input in the module venv
-- UPDATE_PACKAGE : re-installs https://gitlab.met.no/elina1/create_nortrip_input into nortrip-roadweather/[VERSION_NAME]
+- UPDATE_PYTHON_PACKAGE : re-installs https://gitlab.met.no/elina1/create_nortrip_input into nortrip-roadweather/[VERSION_NAME]
 - UPDATE_NORTRIP : compiles and copies the executable/config/jobscript files in the expected paths in the module
 - ONLY_COPY_FILES : copies the executable/config/job script files in the expected paths in the module
 - ALL : CREATE + UPDATE_NORTRIP
 ```
 
 so for example to only update the python package in version `2024-07.666` (assumed existing):   
-`./module_deployment.sh UPDATE_PACKAGE 2024-07.666` 
+`./module_deployment.sh UPDATE_PYTHON_PACKAGE 2024-07.666` 
 
 ## deployment to production
 

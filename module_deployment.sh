@@ -9,7 +9,7 @@ usage="Usage: $(basename "$0") [ACTION] [VERSION_NAME]
 both action and version name are required arguments
 possible actions:
 - CREATE : creates $MODULENAME/[VERSION_NAME] and installs https://gitlab.met.no/elina1/create_nortrip_input in the module venv
-- UPDATE_PACKAGE : re-installs https://gitlab.met.no/elina1/create_nortrip_input into $MODULENAME/[VERSION_NAME]
+- UPDATE_PYTHON_PACKAGE : re-installs https://gitlab.met.no/elina1/create_nortrip_input into $MODULENAME/[VERSION_NAME]
 - UPDATE_NORTRIP : compiles and copies the executable/config/job script files in the expected paths in the module
 - ONLY_COPY_FILES : copies the executable/config/job script files in the expected paths in the module
 - ALL : CREATE + UPDATE_NORTRIP"
@@ -174,7 +174,7 @@ case "$1" in
 		func_create_module_version $1 $2
 		func_install_python_package $1 $2
 		;;
-	UPDATE_PACKAGE )
+	UPDATE_PYTHON_PACKAGE )
 		echo "reinstalling the python package"
 		func_install_python_package $1 $2
 		;;
