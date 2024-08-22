@@ -19,5 +19,10 @@ fi
 
 sed "s:/lustre/store.:$lustredir:" $NORTRIP_CONFIG > $CONF_MOD
 
+# create output directories, if missing
+YEAR=$(date +%Y -d "$date_time_start_tmp")
+MONTH=$(date +%m -d "$date_time_start_tmp")
+mkdir -p $lustredir/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/summary/$YEAR/$MONTH/
+
 NORTRIP_multiroad_combined_v2-r8_testbinary $CONF_MOD $date_time_start $date_time_end
 
