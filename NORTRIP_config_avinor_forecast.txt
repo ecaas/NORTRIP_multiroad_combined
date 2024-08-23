@@ -59,7 +59,7 @@ wetbulb_snow_rain_flag  	2           Set to 2 to use the wetbulb temperature to 
 #1 uses the first primary station and fills with secondary if there is missing data
 #2 uses the average of all available data
 #if set replace below with -1 then gives it a missing data value. Only valid for radiation, cloudcover and surface temperature
-replace_which_meteo_with_obs	1,1,1,1,1,1,1,1,1,1
+replace_which_meteo_with_obs	1,1,1,0,1,1,1,1,1,1
 #ELIN: Endre disse når du har obs_met fil:
 #filename_meteo_obs_metadata	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_obs_data/Vaernes_meteo_obs_metadata.txt
 #inpath_meteo_obs_data      	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_obs_data/
@@ -108,7 +108,7 @@ outfile_NORTRIP_info       	NORTRIP_city_str2
 #Single static data
 #If the hours for saving init files is 0 then it will not save any init files.
 #It will always save the init file for the last time step no matter what
-#Calculation variants are 'road weather', 'episode', 'uEMEP'
+#Calculation variants are 'road weather', 'episode', 'uEMEP','Avinor'
 #Timevariation types are 'normal' (single weekly data each hour) or 'NUDL' monthly, weekday, roadtypes and population. Must read in population in kommune scaling file. If not will use the over 20000 value
 #Site time difference effects the radiation calculations (-1 for Norwegian winter time, goes into NORTRIP)
 #Traffic time difference effects the temporal profiles for traffic (+1 for Norwegian winter time, does not go into NORTRIP)
@@ -122,7 +122,6 @@ Number of timesteps within one hour	6
 Calculation type                	Avinor
 Timevariation type                	normal
 population_cutoff   	20000
-#Calculation type                	uEMEP_sand_salt 
 
 Exhaust EF (he) 	0.1	(g/veh/km)
 Exhaust EF (li) 	0.01	(g/veh/km)
@@ -135,6 +134,10 @@ Wind speed correction factor	1.0	(scaling)
 utm_zone	33
 # Lapse rate is used to correct between 'modelled' and 'real' elevations (K/m)
 lapse_rate	-0.005
+# e-folding time used to relax meteorological values when going from observed to modeled data.
+# if set to 0, do not relax values.
+scaling_for_relaxation	6. 
+
 #----------------------------------------------------
 
 #----------------------------------------------------
@@ -145,14 +148,14 @@ Model input parameter path     	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Run
 Model parameter filename       	Road_dust_parameter_table_v10
 Model input data path          	Will be set to 'path_inputdata_for_NORTRIP'
 Model input data filename      	Will be set to 'outfile_NORTRIP_template' filled with date
-Model output data path         	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/summary/
+#Model output data path         	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/summary/<yyyy/mm>/
 Model output data filename  	Will be set to 'outfile_NORTRIP_template' without filled in date
 Model init data path        	Will be set to path_init_for_NORTRIP
 Model init data filename    	Will be set to 'outfile_NORTRIP_template'+'_init' after date is found
 #Model output emission path  	/home/elina/NORTRIP_forecast_test/NORTRIP_out/emissions/ #Not used in Avinor case!
 Model output emission filename	uEMEP_emissions
 Model output gridded emission filename	uEMEP_grid_emissions
-Model output road meteo path	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/runway_conditions/
+#Model output road meteo path	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_out/runway_conditions/<yyyy/mm>/
 Model output road meteo filename	Will be set to 'outfile_NORTRIP_template'+'_roadmeteo'
 Model fortran path            	Not used as this is the path to the executable
 Model fortran output path   	Not used as this is the path to the total model output dump
@@ -171,7 +174,7 @@ n_dem_files     	0
 filenames_terrain	6400_50m_33.asc,6401_50m_33.asc,64M1_50m_33.asc,6500_50m_33.asc,6501_50m_33.asc,6502_50m_33.asc,6503_50m_33.asc,65M1_50m_33.asc,6600_50m_33.asc,6601_50m_33.asc,6602_50m_33.asc,6603_50m_33.asc,66M1_50m_33.asc,6700_50m_33.asc,6701_50m_33.asc,6702_50m_33.asc,6703_50m_33.asc,67M1_50m_33.asc,6800_50m_33.asc,6801_50m_33.asc,6802_50m_33.asc,6803_50m_33.asc,68M1_50m_33.asc,6900_50m_33.asc,6901_50m_33.asc,6902_50m_33.asc,6903_50m_33.asc,69M1_50m_33.asc,7000_50m_33.asc,7001_50m_33.asc,7002_50m_33.asc,7003_50m_33.asc,7101_50m_33.asc,7102_50m_33.asc,7103_50m_33.asc,7104_50m_33.asc,7202_50m_33.asc,7203_50m_33.asc,7204_50m_33.asc,7303_50m_33.asc,7304_50m_33.asc,7305_50m_33.asc,7403_50m_33.asc,7404_50m_33.asc,7405_50m_33.asc,7503_50m_33.asc,7504_50m_33.asc,7505_50m_33.asc,7506_50m_33.asc,7507_50m_33.asc,7604_50m_33.asc,7605_50m_33.asc,7606_50m_33.asc,7607_50m_33.asc,7608_50m_33.asc,7609_50m_33.asc,7705_50m_33.asc,7706_50m_33.asc,7707_50m_33.asc,7708_50m_33.asc,7709_50m_33.asc,7806_50m_33.asc,7807_50m_33.asc,7808_50m_33.asc,7809_50m_33.asc,7810_50m_33.asc,7811_50m_33.asc,7908_50m_33.asc,7909_50m_33.asc,7910_50m_33.asc
 n_forest_files     	0
 filenames_forest	6400_250m_33_f.asc,6401_250m_33_f.asc,64M1_250m_33_f.asc,6500_250m_33_f.asc,6501_250m_33_f.asc,6502_250m_33_f.asc,6503_250m_33_f.asc,65M1_250m_33_f.asc,6600_250m_33_f.asc,6601_250m_33_f.asc,6602_250m_33_f.asc,6603_250m_33_f.asc,66M1_250m_33_f.asc,6700_250m_33_f.asc,6701_250m_33_f.asc,6702_250m_33_f.asc,6703_250m_33_f.asc,67M1_250m_33_f.asc,6800_250m_33_f.asc,6801_250m_33_f.asc,6802_250m_33_f.asc,6803_250m_33_f.asc,68M1_250m_33_f.asc,6900_250m_33_f.asc,6901_250m_33_f.asc,6902_250m_33_f.asc,6903_250m_33_f.asc,69M1_250m_33_f.asc,7000_250m_33_f.asc,7001_250m_33_f.asc,7002_250m_33_f.asc,7003_250m_33_f.asc,7101_250m_33_f.asc,7102_250m_33_f.asc,7103_250m_33_f.asc,7104_250m_33_f.asc,7202_250m_33_f.asc,7203_250m_33_f.asc,7204_250m_33_f.asc,7303_250m_33_f.asc,7304_250m_33_f.asc,7305_250m_33_f.asc,7403_250m_33_f.asc,7404_250m_33_f.asc,7405_250m_33_f.asc,7503_250m_33_f.asc,7504_250m_33_f.asc,7505_250m_33_f.asc,7506_250m_33_f.asc,7507_250m_33_f.asc,7604_250m_33_f.asc,7605_250m_33_f.asc,7606_250m_33_f.asc,7607_250m_33_f.asc,7608_250m_33_f.asc,7609_250m_33_f.asc,7705_250m_33_f.asc,7706_250m_33_f.asc,7707_250m_33_f.asc,7708_250m_33_f.asc,7709_250m_33_f.asc,7806_250m_33_f.asc,7807_250m_33_f.asc,7808_250m_33_f.asc,7809_250m_33_f.asc,7810_250m_33_f.asc,7811_250m_33_f.asc,7908_250m_33_f.asc,7909_250m_33_f.asc,7910_250m_33_f.asc
-filename_skyview	Skyview_Avinor_Fake_Runway_data_Norway_2023_1.txt
+filename_skyview	Skyview_Avinor_Fake_Runway_segments_data_Norway_2024.txt
 terrain_utm_zone	33
 #----------------------------------------------------
 
