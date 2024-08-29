@@ -65,7 +65,8 @@ prepend-path    VIRTUAL_ENV             $root/venv
 prepend-path    PATH                    $root/venv/bin
 prepend-path    PATH                    $root/bin
 
-setenv NORTRIP_CONFIG       $root/share/NORTRIP_config_avinor_forecast.txt
+setenv HDF5_USE_FILE_LOCKING FALSE
+setenv NORTRIP_CONFIG        $root/share/NORTRIP_config_avinor_forecast.txt
 EOF
 
 	#replace VERSION_NAME and MODULE_NAME with actual version/name
