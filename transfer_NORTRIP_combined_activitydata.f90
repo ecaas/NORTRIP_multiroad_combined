@@ -94,17 +94,17 @@ subroutine process_multi_NORTRIP_activity_inputdata
     
         !First set to 0 any road that is mentioned at all, so it is no longer nodata_activity
         do i_road=1,transfer_n_roads
-        do j=1,n_input_activity
+            do j=1,n_input_activity
 
-            if (inputdata_int_rl(id_rl_index,save_links(i_road)).eq.int(multi_activity_input_data(activity_roadID_index,j))) then
-                
-                !If a road is matched at all then it is assumed to have data all the time. Will be written over in the next time loop
-                transfer_activity_input_data(:,:,i_road)=0.
-                
-                match_link(i_road)=1
+                if (inputdata_int_rl(id_rl_index,save_links(i_road)).eq.int(multi_activity_input_data(activity_roadID_index,j))) then
+                    
+                    !If a road is matched at all then it is assumed to have data all the time. Will be written over in the next time loop
+                    transfer_activity_input_data(:,:,i_road)=0.
+                    
+                    match_link(i_road)=1
 
-            endif
-        enddo
+                endif
+            enddo
         enddo
     
         write(unit_logfile,'(A,5i)') 'Number of activity road links matched without valid dates: ',sum(match_link)
@@ -113,42 +113,41 @@ subroutine process_multi_NORTRIP_activity_inputdata
 
         !Now put in data if a date is found
         do i_road=1,transfer_n_roads
-        do j=1,n_input_activity
-            match_found=.false.
+            do j=1,n_input_activity
+                match_found=.false.
 
-            if (inputdata_int_rl(id_rl_index,save_links(i_road)).eq.int(multi_activity_input_data(activity_roadID_index,j))) then
-                
-            do i=1,n_output_activity
-                !write(*,*)j,i,inputdata_int_rl(id_rl_index,save_links(i_road)),int(multi_activity_input_data(activity_roadID_index,j))
-                !Matches date and road ID. If no road ID has been read (nodata) then apply to all roads for that date
-                if (date_data(year_index,i).eq.int(multi_activity_input_data(activity_year_index,j)).and. &
-                    date_data(month_index,i).eq.int(multi_activity_input_data(activity_month_index,j)).and. &
-                    date_data(day_index,i).eq.int(multi_activity_input_data(activity_day_index,j)).and. &
-                    date_data(hour_index,i).eq.int(multi_activity_input_data(activity_hour_index,j)).and. &
-                    date_data(minute_index,i).eq.int(multi_activity_input_data(activity_minute_index,j))) then
-                    !date_data(minute_index,i).eq.int(multi_activity_input_data(activity_minute_index,j)).and. &
-                    !inputdata_int_rl(id_rl_index,save_links(i_road).eq.int(multi_activity_input_data(activity_roadID_index,j)))) then
-                
-                    !There should be one unique date and road link value. If none is found then it will retain the nodata_activity value
-                    transfer_activity_input_data(:,i,i_road)=multi_activity_input_data(:,j)
-                    match_count=match_count+1
-                    match_found=.true.
-                    match_link(i_road)=1
-                    match_time(i)=1
-                            !if (multi_activity_input_data(activity_hour_index,j).eq.1.and.date_data(hour_index,i).eq.1.and.inputdata_int_rl(id_rl_index,save_links(i_road)).eq.699005) then
-                            !    write(*,*) 'First hour transferred: ',sum(multi_activity_input_data(:,j)),inputdata_int_rl(id_rl_index,save_links(i_road))
-                            !    write(*,*) multi_activity_input_data(activity_hour_index,j),j,date_data(hour_index,i),i
-                            !endif
-                            
-                endif             
-            
+                if (inputdata_int_rl(id_rl_index,save_links(i_road)).eq.int(multi_activity_input_data(activity_roadID_index,j))) then
+                    
+                    do i=1,n_output_activity
+                        !write(*,*)j,i,inputdata_int_rl(id_rl_index,save_links(i_road)),int(multi_activity_input_data(activity_roadID_index,j))
+                        !Matches date and road ID. If no road ID has been read (nodata) then apply to all roads for that date
+                        if (date_data(year_index,i).eq.int(multi_activity_input_data(activity_year_index,j)).and. &
+                            date_data(month_index,i).eq.int(multi_activity_input_data(activity_month_index,j)).and. &
+                            date_data(day_index,i).eq.int(multi_activity_input_data(activity_day_index,j)).and. &
+                            date_data(hour_index,i).eq.int(multi_activity_input_data(activity_hour_index,j)).and. &
+                            date_data(minute_index,i).eq.int(multi_activity_input_data(activity_minute_index,j))) then
+                            !date_data(minute_index,i).eq.int(multi_activity_input_data(activity_minute_index,j)).and. &
+                            !inputdata_int_rl(id_rl_index,save_links(i_road).eq.int(multi_activity_input_data(activity_roadID_index,j)))) then
+                        
+                            !There should be one unique date and road link value. If none is found then it will retain the nodata_activity value
+                            transfer_activity_input_data(:,i,i_road)=multi_activity_input_data(:,j)
+                            match_count=match_count+1
+                            match_found=.true.
+                            match_link(i_road)=1
+                            match_time(i)=1
+                                    !if (multi_activity_input_data(activity_hour_index,j).eq.1.and.date_data(hour_index,i).eq.1.and.inputdata_int_rl(id_rl_index,save_links(i_road)).eq.699005) then
+                                    !    write(*,*) 'First hour transferred: ',sum(multi_activity_input_data(:,j)),inputdata_int_rl(id_rl_index,save_links(i_road))
+                                    !    write(*,*) multi_activity_input_data(activity_hour_index,j),j,date_data(hour_index,i),i
+                                    !endif
+                                    
+                        endif             
+                    enddo
+                endif
+                if (match_found) then
+                    ! write(unit_logfile,'(A,5i12)') 'Match for : ',int(multi_activity_input_data(activity_year_index:activity_hour_index,j)),int(multi_activity_input_data(activity_roadID_index,j))
+                    ! write(*,*) transfer_activity_input_data(:,:,i_road)
+                endif
             enddo
-            endif
-            if (match_found) then
-                !write(unit_logfile,'(A,5i12)') 'Match for : ',int(multi_activity_input_data(activity_year_index:activity_hour_index,j)),int(multi_activity_input_data(activity_roadID_index,j))
-                !write(*,*) transfer_activity_input_data(:,:,i_road)
-            endif
-        enddo
         enddo
     
         write(unit_logfile,'(A,5i)') 'Number of activity dates available : ',n_input_activity
