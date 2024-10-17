@@ -136,7 +136,7 @@ utm_zone	33
 lapse_rate	-0.005
 # e-folding time used to relax meteorological values when going from observed to modeled data.
 # if set to 0, do not relax values.
-scaling_for_relaxation	6. 
+scaling_for_relaxation	3. 
 
 #----------------------------------------------------
 
