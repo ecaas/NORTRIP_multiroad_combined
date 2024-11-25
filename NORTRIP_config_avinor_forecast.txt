@@ -66,7 +66,7 @@ replace_which_meteo_with_obs	1,1,1,0,1,1,1,1,1,1
 #infile_meteo_obs_data      	Vaernes_all_obs.txt
 
 inpath_meteo_obs_netcdf_data      	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/preprocess_frost_script/
-infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd>_T<HH>.nc 
+infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd_THH>.nc 
 #frost_<meteo_startdate>_T<starttime>Z.nc contains six values, the first at startdate, starttime
 #----------------------------------------------------
 
@@ -90,7 +90,7 @@ infile_meteo_nc            	meps_det_2_5km_<yyyymmddTHH>Z.nc
 infile_meteo_alternative_nc            	meps_subset_2_5km_<yyyymmdd>T00Z.nc
 infile_meteo_nc_forecast         	met_forecast_1_0km_nordic_<yyyymmddTHH>Z.nc
 infile_meteo_nc2          	met_analysis_1_0km_nordic_<yyyymmddTHH>Z.nc
-infile_static_road_1      	Avinor_Runway_segments_data_Norway_2024.txt
+infile_static_road_1      	Avinor_Runway_segments_data_Norway_2024_2.txt
 infile_static_road_2      	no data
 infile_dynamic_road     	Road_traffic_profile_SVV.txt
 infile_dynamic_pm2.5       	no data
@@ -174,7 +174,7 @@ n_dem_files     	0
 filenames_terrain	6400_50m_33.asc,6401_50m_33.asc,64M1_50m_33.asc,6500_50m_33.asc,6501_50m_33.asc,6502_50m_33.asc,6503_50m_33.asc,65M1_50m_33.asc,6600_50m_33.asc,6601_50m_33.asc,6602_50m_33.asc,6603_50m_33.asc,66M1_50m_33.asc,6700_50m_33.asc,6701_50m_33.asc,6702_50m_33.asc,6703_50m_33.asc,67M1_50m_33.asc,6800_50m_33.asc,6801_50m_33.asc,6802_50m_33.asc,6803_50m_33.asc,68M1_50m_33.asc,6900_50m_33.asc,6901_50m_33.asc,6902_50m_33.asc,6903_50m_33.asc,69M1_50m_33.asc,7000_50m_33.asc,7001_50m_33.asc,7002_50m_33.asc,7003_50m_33.asc,7101_50m_33.asc,7102_50m_33.asc,7103_50m_33.asc,7104_50m_33.asc,7202_50m_33.asc,7203_50m_33.asc,7204_50m_33.asc,7303_50m_33.asc,7304_50m_33.asc,7305_50m_33.asc,7403_50m_33.asc,7404_50m_33.asc,7405_50m_33.asc,7503_50m_33.asc,7504_50m_33.asc,7505_50m_33.asc,7506_50m_33.asc,7507_50m_33.asc,7604_50m_33.asc,7605_50m_33.asc,7606_50m_33.asc,7607_50m_33.asc,7608_50m_33.asc,7609_50m_33.asc,7705_50m_33.asc,7706_50m_33.asc,7707_50m_33.asc,7708_50m_33.asc,7709_50m_33.asc,7806_50m_33.asc,7807_50m_33.asc,7808_50m_33.asc,7809_50m_33.asc,7810_50m_33.asc,7811_50m_33.asc,7908_50m_33.asc,7909_50m_33.asc,7910_50m_33.asc
 n_forest_files     	0
 filenames_forest	6400_250m_33_f.asc,6401_250m_33_f.asc,64M1_250m_33_f.asc,6500_250m_33_f.asc,6501_250m_33_f.asc,6502_250m_33_f.asc,6503_250m_33_f.asc,65M1_250m_33_f.asc,6600_250m_33_f.asc,6601_250m_33_f.asc,6602_250m_33_f.asc,6603_250m_33_f.asc,66M1_250m_33_f.asc,6700_250m_33_f.asc,6701_250m_33_f.asc,6702_250m_33_f.asc,6703_250m_33_f.asc,67M1_250m_33_f.asc,6800_250m_33_f.asc,6801_250m_33_f.asc,6802_250m_33_f.asc,6803_250m_33_f.asc,68M1_250m_33_f.asc,6900_250m_33_f.asc,6901_250m_33_f.asc,6902_250m_33_f.asc,6903_250m_33_f.asc,69M1_250m_33_f.asc,7000_250m_33_f.asc,7001_250m_33_f.asc,7002_250m_33_f.asc,7003_250m_33_f.asc,7101_250m_33_f.asc,7102_250m_33_f.asc,7103_250m_33_f.asc,7104_250m_33_f.asc,7202_250m_33_f.asc,7203_250m_33_f.asc,7204_250m_33_f.asc,7303_250m_33_f.asc,7304_250m_33_f.asc,7305_250m_33_f.asc,7403_250m_33_f.asc,7404_250m_33_f.asc,7405_250m_33_f.asc,7503_250m_33_f.asc,7504_250m_33_f.asc,7505_250m_33_f.asc,7506_250m_33_f.asc,7507_250m_33_f.asc,7604_250m_33_f.asc,7605_250m_33_f.asc,7606_250m_33_f.asc,7607_250m_33_f.asc,7608_250m_33_f.asc,7609_250m_33_f.asc,7705_250m_33_f.asc,7706_250m_33_f.asc,7707_250m_33_f.asc,7708_250m_33_f.asc,7709_250m_33_f.asc,7806_250m_33_f.asc,7807_250m_33_f.asc,7808_250m_33_f.asc,7809_250m_33_f.asc,7810_250m_33_f.asc,7811_250m_33_f.asc,7908_250m_33_f.asc,7909_250m_33_f.asc,7910_250m_33_f.asc
-filename_skyview	Skyview_Avinor_Runway_segments_data_Norway_2024.txt
+filename_skyview	Skyview_Avinor_Runway_segments_data_Norway_2024_2.txt
 terrain_utm_zone	33
 #----------------------------------------------------
 
@@ -214,7 +214,7 @@ Specify gridding using file	0
 #----------------------------------------------------
 use_only_special_links_flag	2
 use_obs_as_receptors_flag  	0
-filename_NORTRIP_receptors 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/all_airports_stationlist_api.txt
+filename_NORTRIP_receptors 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/all_airports_stationlist_api_2.txt
 #/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_measurements/pilot_airports_stationlist_api.txt
 #/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/NORTRIP_measurements/avinor_stationlist_api_20230127_oldID.txt
 #----------------------------------------------------
