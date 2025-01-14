@@ -306,7 +306,7 @@ meteo2_precip_index	precipitation_amount
 #Specify number of time steps to read from netcdf files
 #If 0 then reads all data in netcdf files
 #----------------------------------------------------
-number_of_time_steps	20
+number_of_time_steps	30
 
 #----------------------------------------------------
 #Specify if files are to be saved as zipped files
