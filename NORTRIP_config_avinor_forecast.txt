@@ -74,7 +74,7 @@ infile_meteo_obs_netcdf_data      	frost_meteo_<yyyymmdd_THH>.nc
 # Paths and filenames used by NORTRIP_multiroad (AROME_25KM_NORWAY_<yyyymmdd>_SURF.nc)
 #----------------------------------------------------
 #filename_no_log            	/home/elina/NORTRIP_forecast_testlog.txt
-inpath_meteo_nc             	/lustre/storeB/immutable/archive/projects/metproduction/meps/<yyyy/mm/dd>/
+inpath_meteo_nc            	/lustre/storeB/project/fou/kl/emep/ModelRuns/NORTRIP/Forecast/<yyyy>/NORTRIP_in/meps/
 inpath_meteo_nc_forecast            	/lustre/storeB/project/metproduction/products/yr_short/ 
 inpath_meteo_nc2        	/lustre/storeB/immutable/archive/projects/metproduction/meps/<yyyy/mm/dd>/
 inpath_static_road_1    	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_runway_data/
@@ -86,7 +86,7 @@ inpath_forest           	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_1/
 path_inputdata_for_NORTRIP 	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_in/
 path_init_for_NORTRIP      	/lustre/storeB/project/fou/kl/NORTRIP_Avinor/Runways_2/NORTRIP_forecast_test/NORTRIP_in/init/
 inpath_main_AQmodel        	no data
-infile_meteo_nc            	meps_det_2_5km_<yyyymmddTHH>Z.nc
+infile_meteo_nc         	meps_mbr0_extracted_2_5km_<yyyymmddTHH>Z.nc
 infile_meteo_alternative_nc            	meps_subset_2_5km_<yyyymmdd>T00Z.nc
 infile_meteo_nc_forecast         	met_forecast_1_0km_nordic_<yyyymmddTHH>Z.nc
 infile_meteo_nc2          	met_analysis_1_0km_nordic_<yyyymmddTHH>Z.nc
@@ -307,7 +307,7 @@ meteo2_precip_index	precipitation_amount
 #Specify number of time steps to read from netcdf files
 #If 0 then reads all data in netcdf files
 #----------------------------------------------------
-number_of_time_steps	20
+number_of_time_steps	30
 
 #----------------------------------------------------
 #Specify if files are to be saved as zipped files
