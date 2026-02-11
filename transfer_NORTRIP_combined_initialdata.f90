@@ -36,7 +36,7 @@ subroutine transfer_preprocessor_to_combined_initialdata
     M2_sand_road=0.00!        	(g/m2)      
     M2_salt_road_1=0.00 !       	(g/m2)      
     M2_salt_road_2=0.00!        	(g/m2)      
-    water_road=0.05!        	(mm)        
+    water_road=0.00!        	(mm)        
     snow_road=0.00!        	(mm.w.e)    
     ice_road=0.00!        	(mm.w.e)    
     
