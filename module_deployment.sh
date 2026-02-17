@@ -29,8 +29,8 @@ echo "target module is $MODULENAME/$2"
 func_create_module_version()
     {
 	/modules/rhel8/user-apps/python/python-3.10.4/bin/python3 -m venv /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$2"/venv --upgrade-deps
-	mkdir /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$2"/bin
-	mkdir /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$2"/share
+	mkdir -p /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$2"/bin
+	mkdir -p /modules/rhel8/user-apps/fou-modules/"$MODULENAME"/"$2"/share
 
 	MODULEFILE=/modules/MET/rhel8/user-modules/fou-modules/"$MODULENAME"/"$2"
 
