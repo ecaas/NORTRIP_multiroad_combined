@@ -17,7 +17,7 @@ else
    echo "using default (/lustre/storeB) for lustredir"
 fi
 
-sed "s:/lustre/store.:$lustredir:" $NORTRIP_CONFIG > $CONF_MOD
+sed "s:/lustre/store.:$lustredir:; s:/lustre/storeB/project/metproduction:$MET_PRODUCTION_DIR:; s:/lustre/metproductionB:$MET_PRODUCTION_DIR:;"  $NORTRIP_CONFIG > $CONF_MOD
 
 # create output directories, if missing
 YEAR=$(date +%Y -d "$date_time_start_tmp")
