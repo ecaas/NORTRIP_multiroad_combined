@@ -263,6 +263,7 @@ meteo_data_type	metcoop
 meteo_lat_index	latitude
 meteo_lon_index	longitude
 meteo_pressure_index	surface_air_pressure
+meteo_dewpoint_index	dew_point_temperature_2m
 meteo_temperature_index	air_temperature_2m
 meteo_relhumidity_index	relative_humidity_2m
 meteo_cloudfraction_index	cloud_area_fraction
